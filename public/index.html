@@ -1,4 +1,22 @@
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> -->
+<script>
+var Prebugger = {
+	snapshot: function (f, loc, vars) {
+		'use strict';
+		if (typeof f !== 'function') {
+			return f;
+		}
+		if (!f._prebugInfo) {
+			f._prebugInfo = { closures: [] };
+		}
+		f._prebugInfo.closures.push({ loc: loc, vars: vars });
+
+		// var fsummary = f.toString().replace(/[ \t\r\n]+/g, ' ').substr(0, 100);
+
+		return f;
+	}
+};
+</script>
 <script src="script.js"></script>
 <p><img src="image.jpg" height="100" /></p>
 <p>You are the best index page, man.</p>
