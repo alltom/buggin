@@ -22,7 +22,7 @@ function filter(req, res, path, type) {
       // wrap with Prebugger.snapshot():
       //  - all non-literal function arguments
       //  - anonymous functions
-      // TODO: don't wrap anonymous functions passed as arguments ;p
+      // TODO: don't double-wrap anonymous functions passed as arguments ;p
       if (node.type === 'CallExpression') {
         for (var i in node.arguments) {
           var arg = node.arguments[i];
